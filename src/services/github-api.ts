@@ -4,11 +4,11 @@ import { GithubRepo } from '@/models/github-repo';
 export class GithubApi {
     private readonly baseUrl: string = 'https://api.github.com/';
 
-    public async getUser(username: string): Promise<GithubUser> {
+    public getUser(username: string): Promise<GithubUser> {
         return this.get<GithubUser>(`users/${username}`);
     }
 
-    public async getUserRepos(username: string): Promise<GithubRepo> {
+    public getUserRepos(username: string): Promise<GithubRepo> {
         return this.get<GithubRepo>(`users/${username}/repos`);
     }
 
