@@ -13,7 +13,7 @@ export class GithubApi {
     }
 
     private async get<T>(url: string): Promise<T> {
-        let request: RequestInit = {
+        const request: RequestInit = {
             headers: {
                 'Accept': 'application/vnd.github.v3+json',
                 'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ export class GithubApi {
             method: 'GET',
         };
 
-        let response = await fetch(this.baseUrl + url, request);
+        const response = await fetch(this.baseUrl + url, request);
         return await response.json() as T;
     }
 }
