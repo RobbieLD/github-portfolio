@@ -1,0 +1,27 @@
+import { GithubUser } from '@/models/github-user';
+import { GithubRepo } from '@/models/github-repo';
+
+export class GithubApi {
+    private readonly baseUrl: string = 'https://api.github.com/';
+
+    public async getUser(username: string): Promise<GithubUser> {
+        return this.get<GithubUser>(`users/${username}`);
+    }
+
+    public async getUserRepos(username: string): Promise<GithubRepo> {
+        return this.get<GithubRepo>(`users/${username}/repos`);
+    }
+
+    private async get<T>(url: string): Promise<T> {
+        let request: RequestInit = {
+            headers: {
+                'Accept': 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json',
+            },
+            method: 'GET',
+        };
+
+        let response = await fetch(this.baseUrl + url, request);
+        return await response.json() as T;
+    }
+}
