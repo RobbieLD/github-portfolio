@@ -1,17 +1,19 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-  </div>
+  <section>
+    <language-section mainTitle="C#" subTitle="My C# Projects" heroClass="is-primary"></language-section>
+    <language-section mainTitle="JavaScript" subTitle="My JavaScript Projects" heroClass="is-info"></language-section>
+    <language-section mainTitle="Random" subTitle="My Random Repos" heroClass="is-link"></language-section>
+  </section>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import NavBar from '@/components/NavBar.vue';
+import { Component, Vue } from "vue-property-decorator";
+import LanguageSection from "@/components/LanguageSection.vue";
 
 @Component({
   components: {
-    NavBar,
-  },
+    LanguageSection
+  }
 })
 export default class Home extends Vue {}
 </script>
