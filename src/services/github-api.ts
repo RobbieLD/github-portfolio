@@ -1,7 +1,7 @@
 import { GithubUser } from '@/models/github-user';
 import { GithubRepo } from '@/models/github-repo';
 
-export class GithubApi {
+class GithubApi {
     private readonly baseUrl: string = 'https://api.github.com/';
 
     public getUser(username: string): Promise<GithubUser> {
@@ -25,3 +25,5 @@ export class GithubApi {
         return await response.json() as T;
     }
 }
+
+export default new GithubApi();
