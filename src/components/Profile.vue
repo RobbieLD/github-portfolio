@@ -42,7 +42,3 @@ export default class Profile extends Vue {
         width: 256px;
 }
 </style>
-
-
-</style>
-

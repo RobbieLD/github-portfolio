@@ -10,6 +10,14 @@
           avatar="https://avatars2.githubusercontent.com/u/9649383?v=4"></profile>
       </template>
     </portfolio-section>
+    <portfolio-section heroClass="is-primary">
+      <template v-slot:header>
+        C# Repositories
+      </template>
+      <template>
+        <repository></repository>
+      </template>
+    </portfolio-section>
   </section>
 </template>
 
@@ -17,11 +25,13 @@
 import { Component, Vue } from 'vue-property-decorator';
 import PortfolioSection from '@/components/PortfolioSection.vue';
 import Profile from '@/components/Profile.vue';
+import Repository from '@/components/Repository.vue';
 
 @Component({
   components: {
     PortfolioSection,
     Profile,
+    Repository,
   },
 })
 export default class Home extends Vue {}

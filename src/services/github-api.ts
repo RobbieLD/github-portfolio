@@ -8,8 +8,8 @@ class GithubApi {
         return this.get<GithubUser>(`users/${username}`);
     }
 
-    public getUserRepos(username: string): Promise<GithubRepo> {
-        return this.get<GithubRepo>(`users/${username}/repos`);
+    public getUserRepos(username: string): Promise<GithubRepo[]> {
+        return this.get<GithubRepo[]>(`users/${username}/repos`);
     }
 
     private async get<T>(url: string): Promise<T> {
