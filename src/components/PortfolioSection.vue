@@ -1,7 +1,9 @@
 <template>
   <section v-bind:class="heroClass" class="hero is-fullheight-with-navbar is-bold">
     <div class="hero-head">
-      <slot name="header"></slot>
+      <section class="section">
+        <slot name="header"></slot>
+      </section>
     </div>
     <div class="hero-body">
       <section class="container">
