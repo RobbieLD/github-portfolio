@@ -7,13 +7,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import LanguageSection from "@/components/LanguageSection.vue";
+import { Component, Vue } from 'vue-property-decorator';
+import LanguageSection from '@/components/LanguageSection.vue';
 
 @Component({
   components: {
-    LanguageSection
-  }
+    LanguageSection,
+  },
 })
 export default class Home extends Vue {}
 </script>

@@ -12,17 +12,17 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class LanguageSection extends Vue {
   @Prop({ required: true })
-  mainTitle!: string;
+  public mainTitle!: string;
 
   @Prop({ required: true })
-  subTitle!: string;
+  public subTitle!: string;
 
-  @Prop({ default: "is-primary" })
-  heroClass!: string;
+  @Prop({ default: 'is-primary' })
+  public heroClass!: string;
 }
 </script>
