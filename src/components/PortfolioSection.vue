@@ -1,10 +1,12 @@
 <template>
-  <section v-bind:class="heroClass" class="hero is-fullheight-with-navbar">
+  <section v-bind:class="heroClass" class="hero is-fullheight-with-navbar is-bold">
     <div class="hero-head">
       <slot name="header"></slot>
     </div>
     <div class="hero-body">
-      <slot></slot>
+      <section class="container">
+        <slot></slot>
+      </section>
     </div>
     <div class="hero-footer">
       <slot name="footer"></slot>
