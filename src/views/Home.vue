@@ -1,18 +1,28 @@
 <template>
   <section>
-    <language-section mainTitle="C#" subTitle="My C# Projects" heroClass="is-primary"></language-section>
-    <language-section mainTitle="JavaScript" subTitle="My JavaScript Projects" heroClass="is-info"></language-section>
-    <language-section mainTitle="Random" subTitle="My Random Repos" heroClass="is-link"></language-section>
+    <portfolio-section heroClass="is-info">
+      <!-- Header -->
+      <template v-slot:header></template>
+      <!-- Body -->
+      <template>
+        <div class="container">
+          <h1 class="title">Rob Davis</h1>
+          <h2 class="subtitle">GitHub Showcase</h2>
+        </div>
+      </template>
+      <!-- Footer -->
+      <template v-slot:footer></template>
+    </portfolio-section>
   </section>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import LanguageSection from '@/components/LanguageSection.vue';
+import PortfolioSection from '@/components/PortfolioSection.vue';
 
 @Component({
   components: {
-    LanguageSection,
+    PortfolioSection,
   },
 })
 export default class Home extends Vue {}
