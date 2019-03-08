@@ -13,20 +13,7 @@
         <div class="title is-10">C#</div>
       </template>
       <template>
-        <div class="columns is-multiline is-vcentered is-centered">
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <project projectTitle="Awesome Project 1" projectDescription="My very cool library of great usefulness" projectLastUpdate="1 Hour ago"></project>
-          </div>
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <project projectTitle="Awesome Project 1" projectDescription="My very cool library of great usefulness" projectLastUpdate="1 Hour ago"></project>
-          </div>
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <project projectTitle="Awesome Project 1" projectDescription="My very cool library of great usefulness" projectLastUpdate="1 Hour ago"></project>
-          </div>
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <project projectTitle="Awesome Project 1" projectDescription="My very cool library of great usefulness" projectLastUpdate="1 Hour ago"></project>
-          </div>
-        </div>
+        <projects></projects>
       </template>
     </portfolio-section>
 
@@ -46,14 +33,6 @@
         </div>
       </template>
     </portfolio-section>
-    <portfolio-section heroClass="is-primary">
-      <template v-slot:header>
-        C# Repositories
-      </template>
-      <template>
-        <repository></repository>
-      </template>
-    </portfolio-section>
   </section>
 </template>
 
@@ -62,12 +41,14 @@ import { Component, Vue } from 'vue-property-decorator';
 import PortfolioSection from '@/components/PortfolioSection.vue';
 import Profile from '@/components/Profile.vue';
 import Project from '@/components/Project.vue';
+import Projects from '@/components/Projects.vue';
 
 @Component({
   components: {
     PortfolioSection,
     Profile,
     Project,
+    Projects,
   },
 })
 export default class Home extends Vue {}
