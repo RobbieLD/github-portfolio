@@ -20,16 +20,16 @@
       <template>
         <div class="columns is-multiline is-vcentered is-centered">
           <div class="column is-one-quarter-desktop is-half-tablet">
-            <project projectTitle="Awesome Project 1" projectDescription="My very cool library of great usefulness" projectLastUpdate="1 Hour ago"></project>
+            <project projectTitle="Awesome Project 1" projectDescription="My very cool library of great usefulness." projectLastUpdate="1 Hour ago"></project>
           </div>
           <div class="column is-one-quarter-desktop is-half-tablet">
-            <project projectTitle="Awesome Project 1" projectDescription="My very cool library of great usefulness" projectLastUpdate="1 Hour ago"></project>
+            <project projectTitle="Awesome Project 1" projectDescription="My very cool library of great usefulness." projectLastUpdate="1 Hour ago"></project>
           </div>
           <div class="column is-one-quarter-desktop is-half-tablet">
-            <project projectTitle="Awesome Project 1" projectDescription="My very cool library of great usefulness" projectLastUpdate="1 Hour ago"></project>
+            <project projectTitle="Awesome Project 1" projectDescription="My very cool library of great usefulness." projectLastUpdate="1 Hour ago"></project>
           </div>
           <div class="column is-one-quarter-desktop is-half-tablet">
-            <project projectTitle="Awesome Project 1" projectDescription="My very cool library of great usefulness" projectLastUpdate="1 Hour ago"></project>
+            <project projectTitle="Awesome Project 1" projectDescription="My very cool library of great usefulness." projectLastUpdate="1 Hour ago"></project>
           </div>
         </div>
       </template>
@@ -43,10 +43,10 @@
       <template>
         <div class="columns is-multiline is-vcentered is-centered">
           <div class="column is-one-quarter-desktop is-half-tablet">
-            <project projectTitle="Awesome Project 1" projectDescription="My very cool library of great usefulness" projectLastUpdate="1 Hour ago"></project>
+            <project projectTitle="Awesome Project 1" projectDescription="My very cool library of great usefulness." projectLastUpdate="1 Hour ago"></project>
           </div>
           <div class="column is-one-quarter-desktop is-half-tablet">
-            <project projectTitle="Awesome Project 1" projectDescription="My very cool library of great usefulness" projectLastUpdate="1 Hour ago"></project>
+            <project projectTitle="Awesome Project 1" projectDescription="My very cool library of great usefulness." projectLastUpdate="1 Hour ago"></project>
           </div>
         </div>
       </template>
