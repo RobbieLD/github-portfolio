@@ -20,10 +20,9 @@
       </div>
       <!-- 
           Proably don't need this but if we want something at the right of the nav bar it goes here
-      -->
       <div class="navbar-end">
-        <span class="navbar-item">{{name}}</span>
       </div>
+      -->
     </div>
   </nav>
 </template>
@@ -35,7 +34,6 @@ import GithubData from '@/services/github-data';
 @Component
 export default class NavBar extends Vue {
   private isMobileMenuActive = false;
-  private name = '';
   private avatarUrl = '';
 
   private toggleMobileMenu(): void {
@@ -44,7 +42,6 @@ export default class NavBar extends Vue {
 
   private async mounted() {
     const user = await GithubData.getUser();
-    this.name = user.name;
     this.avatarUrl = user.avatar_url;
   }
 }
