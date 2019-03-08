@@ -14,15 +14,49 @@
     </div>
     <div class="navbar-menu" v-bind:class="{'is-active' : isMobileMenuActive}">
       <div class="navbar-start">
-        <router-link class="navbar-item" to="/home">Home</router-link>
+        <span class="navbar-item">{{name}}</span>
+        <!-- <router-link class="navbar-item" to="/home">Home</router-link>
         <router-link class="navbar-item" to="/home">GitHub</router-link>
-        <router-link class="navbar-item" to="/home">Nuget</router-link>
+        <router-link class="navbar-item" to="/home">Nuget</router-link>-->
       </div>
       <!-- 
-          Proably don't need this but if we want something at the right of the nav bar it goes here
+          We could make these configurable in the config file
       -->
       <div class="navbar-end">
-        <span class="navbar-item">{{name}}</span>
+        <a href="#" class="level-item is-size-7" aria-label="GitHub" title="GitHub">
+          <span class="fa-stack fa-2x">
+            <font-awesome-icon class="fa-stack-2x" icon="circle"/>
+            <font-awesome-icon class="fa-stack-1x fa-inverse" :icon="['fab', 'github']"/>
+          </span>
+        </a>
+        
+        <a href="#" class="level-item is-size-7" aria-label="Twitter" title="Twitter">
+          <span class="fa-stack fa-2x">
+            <font-awesome-icon class="fa-stack-2x" icon="circle"/>
+            <font-awesome-icon class="fa-stack-1x fa-inverse" :icon="['fab', 'twitter']"/>
+          </span>
+        </a>
+        
+        <a href="#" class="level-item is-size-7" aria-label="Stack Overflow" title="Stack Overflow">
+          <span class="fa-stack fa-2x">
+            <font-awesome-icon class="fa-stack-2x" icon="circle"/>
+            <font-awesome-icon class="fa-stack-1x fa-inverse" :icon="['fab', 'stack-overflow']"/>
+          </span>
+        </a>
+        
+        <a href="#" class="level-item is-size-7" aria-label="Npm" title="Npm">
+          <span class="fa-stack fa-2x">
+            <font-awesome-icon class="fa-stack-2x" icon="circle"/>
+            <font-awesome-icon class="fa-stack-1x fa-inverse" :icon="['fab', 'npm']"/>
+          </span>
+        </a>
+        
+        <a href="#" class="level-item is-size-7" aria-label="Bitbucket" title="Bitbucket">
+          <span class="fa-stack fa-2x">
+            <font-awesome-icon class="fa-stack-2x" icon="circle"/>
+            <font-awesome-icon class="fa-stack-1x fa-inverse" :icon="['fab', 'bitbucket']"/>
+          </span>
+        </a>
       </div>
     </div>
   </nav>

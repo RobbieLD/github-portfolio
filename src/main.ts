@@ -11,11 +11,36 @@ import {
   faTag,
   faUpload,
   faDesktop,
+  faSquare,
+  faCircle,
 } from '@fortawesome/free-solid-svg-icons';
+
+import {
+  faStackOverflow,
+  faTwitter,
+  faNpm,
+  faBitbucket,
+  faGithub,
+} from '@fortawesome/free-brands-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-library.add(faStar, faCodeBranch, faCalendarAlt, faUsers, faTag, faUpload, faDesktop);
+library.add(
+    faStar,
+    faCodeBranch,
+    faCalendarAlt,
+    faUsers,
+    faTag,
+    faUpload,
+    faDesktop,
+    faStackOverflow,
+    faTwitter,
+    faNpm,
+    faSquare,
+    faCircle,
+    faBitbucket,
+    faGithub,
+  );
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 // Import all the sass
