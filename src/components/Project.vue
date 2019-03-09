@@ -1,19 +1,21 @@
 <template>
   <div class="box">
-    <div class="title has-text-dark">{{ projectTitle }}</div>
-    <div class="subtitle has-text-dark has-text-weight-light">@3 days ago</div>
+    <div class="title has-text-dark">{{ repo.name }}</div>
+    <div class="subtitle has-text-dark has-text-weight-light">
+      <timeago :datetime="repo.updated_at"></timeago>
+    </div>
     <div class="subtitle has-text-dark">
-        {{ projectDescription }}
+        {{ repo.description }}
     </div>
     <div class="level is-mobile">
       <div class="level-left">
         <a href="#" class="level-item has-text-info" aria-label="Stars" title="Stars">
           <font-awesome-icon icon="star"/>
-          <span class="is-size-7 has-text-weight-light has-right-nudge">5</span>
+          <span class="is-size-7 has-text-weight-light has-right-nudge">{{ repo.stargazers_count }}</span>
         </a>
         <a href="#" class="level-item has-text-info" aria-label="Forks" title="Forks">
           <font-awesome-icon icon="code-branch"/>
-          <span class="is-size-7 has-text-weight-light has-right-nudge">1</span>
+          <span class="is-size-7 has-text-weight-light has-right-nudge">{{ repo.forks }}</span>
         </a>
         <a href="#" class="level-item has-text-info" aria-label="Contributors" title="Contributors">
           <font-awesome-icon icon="users"/>
@@ -38,19 +40,14 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
+import { GithubRepo } from '@/models/github-repo';
 
 @Component({
   components: {},
 })
 export default class Project extends Vue {
   @Prop({ required: true })
-  public projectTitle!: string;
-
-  @Prop({ required: true })
-  public projectDescription!: string;
-
-  @Prop({ required: true })
-  public projectLastUpdate!: string;
+  public repo!: GithubRepo;
 }
 </script>
 

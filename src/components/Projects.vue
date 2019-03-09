@@ -6,9 +6,7 @@
       :key="index"
     >
       <project
-        :projectTitle="repo.name"
-        :projectDescription="repo.description"
-        :projectLastUpdate="repo.updated_at"
+        :repo="repo"
       ></project>
     </div>
   </div>

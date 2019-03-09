@@ -2,6 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
+import VueTimeago from 'vue-timeago';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faStar,
@@ -47,6 +48,11 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 import './assets/app.scss';
 
 Vue.config.productionTip = false;
+
+Vue.use(VueTimeago, {
+  name: 'timeago',
+  locale: navigator.language,
+});
 
 new Vue({
   router,
