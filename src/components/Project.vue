@@ -29,7 +29,7 @@
           <font-awesome-icon icon="tag"/>
           <span class="is-size-7 has-text-weight-light has-right-nudge">6</span>
         </a>
-        <a href="#" class="has-text-danger" aria-label="Demo" title="Demo">
+        <a :href="repo.homepage" v-if="repo.homepage" class="has-text-danger" aria-label="Demo" title="Demo">
           <font-awesome-icon icon="desktop"/>
         </a>
       </div>
