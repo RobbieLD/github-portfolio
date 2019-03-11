@@ -70,7 +70,7 @@ import Project from '@/components/Project.vue';
 export default class Home extends Vue {
   private mounted() {
     this.$store.dispatch('loadUser');
-  } 
+  }
 }
 </script>
 

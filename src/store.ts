@@ -16,7 +16,7 @@ export default new Vuex.Store({
 
     setTheme(state, theme) {
       Cookies.set('theme', theme);
-    }
+    },
   },
   actions: {
     async loadUser({ commit }) {
