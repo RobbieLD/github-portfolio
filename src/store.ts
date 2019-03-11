@@ -2,12 +2,15 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import GithubData from '@/services/github-data';
 import Cookies from 'js-cookie';
+import { AppState } from '@/models/app-state';
+import { GithubUser} from '@/models/github-user';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+export default new Vuex.Store<AppState>({
   state: {
-    user: {},
+    user: {} as GithubUser,
+    theme: 'Light',
   },
   mutations: {
     setUser(state, user) {
@@ -15,6 +18,7 @@ export default new Vuex.Store({
     },
 
     setTheme(state, theme) {
+      state.theme = theme;
       Cookies.set('theme', theme);
     },
   },
@@ -25,8 +29,8 @@ export default new Vuex.Store({
   },
 
   getters: {
-    theme() {
-      return Cookies.get('theme') || 'theme';
+    theme(state) {
+      return state.theme || Cookies.get('theme');
     },
     user: (state) => state.user,
   },
