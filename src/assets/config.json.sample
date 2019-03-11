@@ -1,3 +1,18 @@
 {
-    "githubUser": ""
+    "githubUser": "",
+    "sections": [{
+        "title": "C#",
+        "class": "is-waring",
+        "repos": ["MailMinion", "patterns"]
+    },
+    {
+        "title": "Vue.JS",
+        "class": "is-primary",
+        "repos": ["raspberryeye", "github-portfoilio"]
+    },
+    {
+        "title": "Umbraco",
+        "class": "is-info",
+        "repos": [ "FontAwesomeIconFinder"]
+    }]
 }
