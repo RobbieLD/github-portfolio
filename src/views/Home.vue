@@ -67,7 +67,11 @@ import Project from '@/components/Project.vue';
     Project,
   },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  private mounted() {
+    this.$store.dispatch('loadUser');
+  } 
+}
 </script>
 
 <style scoped>

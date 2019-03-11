@@ -3,7 +3,7 @@
     <div class="navbar-brand">
       <a class="navbar-item">
         <figure class="image is-24x24">
-          <img class="is-rounded" :src="avatarUrl">
+          <img class="is-rounded" :src="user.avatar_url">
         </figure>
       </a>
       <div class="navbar-burger burger" @click="toggleMobileMenu()">
@@ -14,7 +14,7 @@
     </div>
     <div class="navbar-menu" v-bind:class="{'is-active' : isMobileMenuActive}">
       <div class="navbar-start">
-        <span class="navbar-item">{{name}}</span>
+        <span class="navbar-item">{{ user.name }}</span>
         <!-- <router-link class="navbar-item" to="/home">Home</router-link>
         <router-link class="navbar-item" to="/home">GitHub</router-link>
         <router-link class="navbar-item" to="/home">Nuget</router-link>-->
@@ -64,9 +64,11 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import GithubData from '@/services/github-data';
+import { mapGetters } from 'vuex';
 
-@Component
+@Component({
+  computed: mapGetters(['user']),
+})
 export default class NavBar extends Vue {
   private isMobileMenuActive = false;
   private name = '';
@@ -74,12 +76,6 @@ export default class NavBar extends Vue {
 
   private toggleMobileMenu(): void {
     this.isMobileMenuActive = !this.isMobileMenuActive;
-  }
-
-  private async mounted() {
-    const user = await GithubData.getUser();
-    this.name = user.name;
-    this.avatarUrl = user.avatar_url;
   }
 }
 </script>
