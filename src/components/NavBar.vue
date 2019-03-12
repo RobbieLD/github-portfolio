@@ -71,8 +71,6 @@ import { mapGetters } from 'vuex';
 })
 export default class NavBar extends Vue {
   private isMobileMenuActive = false;
-  private name = '';
-  private avatarUrl = '';
 
   private toggleMobileMenu(): void {
     this.isMobileMenuActive = !this.isMobileMenuActive;
