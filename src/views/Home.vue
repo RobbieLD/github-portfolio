@@ -13,7 +13,7 @@
         <div class="title is-10">C#</div>
       </template>
       <template>
-        <projects></projects>
+        <projects :repos="repos.filter(x => x.language === 'C#')"></projects>
       </template>
     </portfolio-section>
 
@@ -25,10 +25,18 @@
       <template>
         <div class="columns is-multiline is-vcentered is-centered">
           <div class="column is-one-quarter-desktop is-half-tablet">
-            <project projectTitle="Awesome Project 1" projectDescription="My very cool library of great usefulness." projectLastUpdate="1 Hour ago"></project>
+            <project
+              projectTitle="Awesome Project 1"
+              projectDescription="My very cool library of great usefulness."
+              projectLastUpdate="1 Hour ago"
+            ></project>
           </div>
           <div class="column is-one-quarter-desktop is-half-tablet">
-            <project projectTitle="Awesome Project 1" projectDescription="My very cool library of great usefulness." projectLastUpdate="1 Hour ago"></project>
+            <project
+              projectTitle="Awesome Project 1"
+              projectDescription="My very cool library of great usefulness."
+              projectLastUpdate="1 Hour ago"
+            ></project>
           </div>
         </div>
       </template>
@@ -42,6 +50,8 @@ import PortfolioSection from '@/components/PortfolioSection.vue';
 import Profile from '@/components/Profile.vue';
 import Project from '@/components/Project.vue';
 import Projects from '@/components/Projects.vue';
+import GithubData from '@/services/github-data';
+import { GithubRepo } from '@/models/github-repo';
 
 @Component({
   components: {
@@ -51,7 +61,14 @@ import Projects from '@/components/Projects.vue';
     Projects,
   },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  private repos: GithubRepo[] = [];
+
+  private async created() {
+    this.repos = await GithubData.getRepos();
+    this.repos.sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime());
+  }
+}
 </script>
 
 <style scoped>

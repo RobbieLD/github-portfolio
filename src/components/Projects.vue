@@ -5,9 +5,7 @@
       v-for="(repo, index) in repos"
       :key="index"
     >
-      <project
-        :repo="repo"
-      ></project>
+      <project :repo="repo"></project>
     </div>
   </div>
 </template>
@@ -15,7 +13,6 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import GithubData from '@/services/github-data';
-import { GithubRepo } from '@/models/github-repo';
 import Project from '@/components/Project.vue';
 
 @Component({
@@ -24,11 +21,8 @@ import Project from '@/components/Project.vue';
   },
 })
 export default class Projects extends Vue {
+  @Prop({ required: true })
   private repos: GithubRepo[] = [];
-
-  private async created() {
-    this.repos = await GithubData.getRepos();
-  }
 }
 </script>
 
