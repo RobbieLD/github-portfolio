@@ -64,12 +64,13 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { mapGetters } from 'vuex';
+import { UserStore } from '@/store';
+import { GithubUser } from '@/models/github-user';
 
-@Component({
-  computed: mapGetters(['user']),
-})
+@Component
 export default class NavBar extends Vue {
+  // @a-jackson why doesn't it recognise the types for CreateProxy in this component when it will from the store.ts?
+  private user: Partial<GithubUser> = UserStore.CreateProxy( this.$store, UserStore );
   private isMobileMenuActive = false;
 
   private toggleMobileMenu(): void {

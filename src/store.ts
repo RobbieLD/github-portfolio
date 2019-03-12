@@ -1,36 +1,32 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import GithubData from '@/services/github-data';
-import Cookies from 'js-cookie';
-import { AppState } from '@/models/app-state';
+import { VuexModule, mutation, action, getter, Module } from 'vuex-class-component';
+import { GithubUser } from './models/github-user';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store<AppState>({
-  state: {
-    user: {},
-    theme: 'Light',
-  },
-  mutations: {
-    setUser(state, user) {
-      state.user = user;
-    },
+@Module( { namespacedPath: 'user/'})
+export class UserStore extends VuexModule {
 
-    setTheme(state, theme) {
-      state.theme = theme;
-      Cookies.set('theme', theme);
-    },
-  },
-  actions: {
-    async loadUser({ commit }) {
-      commit('setUser', await GithubData.getUser());
-    },
-  },
+  // State/Getters
+  @getter public user: Partial<GithubUser> = {};
 
-  getters: {
-    theme(state) {
-      return state.theme || Cookies.get('theme');
-    },
-    user: (state) => state.user,
+  @action()
+  public async loadUser() {
+    this.setUser(await GithubData.getUser());
+  }
+
+  @mutation
+  private setUser(u: Partial<GithubUser>) {
+    this.user = u;
+  }
+}
+
+export const user = UserStore.ExtractVuexModule( UserStore );
+
+export default new Vuex.Store({
+  modules: {
+    user,
   },
 });
