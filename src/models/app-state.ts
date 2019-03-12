@@ -1,6 +1,6 @@
 import { GithubUser } from './github-user';
 
 export interface AppState {
-    user: GithubUser;
+    user: Partial<GithubUser>;
     theme: 'Light' | 'Dark';
 }

@@ -3,13 +3,12 @@ import Vuex from 'vuex';
 import GithubData from '@/services/github-data';
 import Cookies from 'js-cookie';
 import { AppState } from '@/models/app-state';
-import { GithubUser} from '@/models/github-user';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store<AppState>({
   state: {
-    user: {} as GithubUser,
+    user: {},
     theme: 'Light',
   },
   mutations: {
