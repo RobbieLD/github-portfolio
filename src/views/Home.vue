@@ -56,6 +56,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { vxm } from '@/store';
 import PortfolioSection from '@/components/PortfolioSection.vue';
 import Profile from '@/components/Profile.vue';
 import Project from '@/components/Project.vue';
@@ -69,7 +70,7 @@ import Project from '@/components/Project.vue';
 })
 export default class Home extends Vue {
   private mounted() {
-    this.$store.dispatch('loadUser');
+    vxm.user.loadUser();
   }
 }
 </script>

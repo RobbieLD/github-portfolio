@@ -3,7 +3,7 @@
     <div class="navbar-brand">
       <a class="navbar-item">
         <figure class="image is-24x24">
-          <img class="is-rounded" :src="user.avatar_url">
+          <img class="is-rounded" :src="avatar">
         </figure>
       </a>
       <div class="navbar-burger burger" @click="toggleMobileMenu()">
@@ -14,7 +14,7 @@
     </div>
     <div class="navbar-menu" v-bind:class="{'is-active' : isMobileMenuActive}">
       <div class="navbar-start">
-        <span class="navbar-item">{{ user.name }}</span>
+        <span class="navbar-item">{{ name }}</span>
         <!-- <router-link class="navbar-item" to="/home">Home</router-link>
         <router-link class="navbar-item" to="/home">GitHub</router-link>
         <router-link class="navbar-item" to="/home">Nuget</router-link>-->
@@ -64,17 +64,31 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { UserStore } from '@/store';
 import { GithubUser } from '@/models/github-user';
+import { vxm } from '@/store';
 
 @Component
 export default class NavBar extends Vue {
-  // @a-jackson why doesn't it recognise the types for CreateProxy in this component when it will from the store.ts?
-  private user: Partial<GithubUser> = UserStore.CreateProxy( this.$store, UserStore );
   private isMobileMenuActive = false;
 
   private toggleMobileMenu(): void {
     this.isMobileMenuActive = !this.isMobileMenuActive;
+  }
+
+  /* mapGetters will work for methods but
+  ** it doesn't seem to be reactive so this
+  ** is how we have to do it if we want reactivity
+  ** Also it seems that making a computed prop for the
+  ** entire gitUser object doesn't seem to be reactive either.
+  ** This is the only way I could make it reactive, but we do
+  ** get intellisence.
+  */
+  private get avatar() {
+    return vxm.user.gitUser.avatar_url;
+  }
+
+  private get name() {
+    return vxm.user.gitUser.name;
   }
 }
 </script>
