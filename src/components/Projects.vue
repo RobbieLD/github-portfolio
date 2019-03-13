@@ -14,6 +14,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import GithubData from '@/services/github-data';
 import Project from '@/components/Project.vue';
+import { GithubRepo } from '@/models/github-repo';
 
 @Component({
   components: {
