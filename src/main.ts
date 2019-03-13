@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
-import store from './store';
 import VueTimeago from 'vue-timeago';
+import { store } from './store';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faStar,

@@ -46,6 +46,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { vxm } from '@/store';
 import PortfolioSection from '@/components/PortfolioSection.vue';
 import Profile from '@/components/Profile.vue';
 import Project from '@/components/Project.vue';
@@ -67,6 +68,10 @@ export default class Home extends Vue {
   private async created() {
     this.repos = await GithubData.getRepos();
     this.repos.sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime());
+  }
+
+  private mounted() {
+    vxm.user.loadUser();
   }
 }
 </script>
