@@ -14,6 +14,7 @@ import {
   faDesktop,
   faSquare,
   faCircle,
+  faMapMarkerAlt,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -41,6 +42,7 @@ library.add(
     faCircle,
     faBitbucket,
     faGithub,
+    faMapMarkerAlt,
   );
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 

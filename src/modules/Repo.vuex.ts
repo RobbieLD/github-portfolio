@@ -3,6 +3,7 @@ import GithubData from '@/services/github-data';
 import { Section } from '@/models/app-section';
 import config from '@/assets/config.json';
 import { GithubRepo } from '@/models/github-repo';
+import { Config } from '@/models/app-config';
 
 @Module({ namespacedPath: 'repo/' })
 export class RepoStore extends VuexModule {
@@ -17,7 +18,7 @@ export class RepoStore extends VuexModule {
     @mutation
     private setRepos(rps: GithubRepo[]) {
         // Filter the git hub repos and create sections from them
-        this.sections = config.sections.map((cfgSection) =>
+        this.sections = (config as Config).sections.map((cfgSection) =>
             (
                 new Section(cfgSection.title, cfgSection.class, rps.filter((r) =>
                     cfgSection.repos.includes(r.name)),

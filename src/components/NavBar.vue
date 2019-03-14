@@ -20,39 +20,24 @@
           We could make these configurable in the config file
       -->
       <div class="navbar-end">
-        <a href="#" class="level-item is-size-7" aria-label="GitHub" title="GitHub">
-          <span class="fa-stack fa-2x">
-            <font-awesome-icon class="fa-stack-2x" icon="circle"/>
-            <font-awesome-icon class="fa-stack-1x fa-inverse" :icon="['fab', 'github']"/>
-          </span>
+        <a href="#" class="navbar-item is-size-4" aria-label="GitHub" title="GitHub">
+          <font-awesome-icon :icon="['fab', 'github']"/>
         </a>
         
-        <a href="#" class="level-item is-size-7" aria-label="Twitter" title="Twitter">
-          <span class="fa-stack fa-2x">
-            <font-awesome-icon class="fa-stack-2x" icon="circle"/>
-            <font-awesome-icon class="fa-stack-1x fa-inverse" :icon="['fab', 'twitter']"/>
-          </span>
+        <a href="#" class="navbar-item is-size-4" aria-label="Twitter" title="Twitter">
+          <font-awesome-icon :icon="['fab', 'twitter']"/>
         </a>
         
-        <a href="#" class="level-item is-size-7" aria-label="Stack Overflow" title="Stack Overflow">
-          <span class="fa-stack fa-2x">
-            <font-awesome-icon class="fa-stack-2x" icon="circle"/>
-            <font-awesome-icon class="fa-stack-1x fa-inverse" :icon="['fab', 'stack-overflow']"/>
-          </span>
+        <a href="#" class="navbar-item is-size-4" aria-label="Stack Overflow" title="Stack Overflow">
+          <font-awesome-icon :icon="['fab', 'stack-overflow']"/>
         </a>
         
-        <a href="#" class="level-item is-size-7" aria-label="Npm" title="Npm">
-          <span class="fa-stack fa-2x">
-            <font-awesome-icon class="fa-stack-2x" icon="circle"/>
-            <font-awesome-icon class="fa-stack-1x fa-inverse" :icon="['fab', 'npm']"/>
-          </span>
+        <a href="#" class="navbar-item is-size-4" aria-label="Npm" title="Npm">
+          <font-awesome-icon :icon="['fab', 'npm']"/>
         </a>
         
-        <a href="#" class="level-item is-size-7" aria-label="Bitbucket" title="Bitbucket">
-          <span class="fa-stack fa-2x">
-            <font-awesome-icon class="fa-stack-2x" icon="circle"/>
-            <font-awesome-icon class="fa-stack-1x fa-inverse" :icon="['fab', 'bitbucket']"/>
-          </span>
+        <a href="#" class="navbar-item is-size-4" aria-label="Bitbucket" title="Bitbucket">
+          <font-awesome-icon :icon="['fab', 'bitbucket']"/>
         </a>
       </div>
     </div>
