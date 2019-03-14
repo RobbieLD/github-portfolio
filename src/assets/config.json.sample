@@ -1,3 +1,15 @@
 {
-    "githubUser": ""
+    "githubUser": "GitHubUserName",
+    "sections": [
+        {
+            "title": "C#",
+            "class": "is-primary",
+            "repos": ["ProjectA", "ProjectB"]
+        },
+        {
+            "title": "JavaScript",
+            "class": "is-warning",
+            "repos": ["ProjectB", "ProjectC"]
+        }
+    ]  
 }

@@ -75,14 +75,6 @@ export default class NavBar extends Vue {
     this.isMobileMenuActive = !this.isMobileMenuActive;
   }
 
-  /* mapGetters will work for methods but
-  ** it doesn't seem to be reactive so this
-  ** is how we have to do it if we want reactivity
-  ** Also it seems that making a computed prop for the
-  ** entire gitUser object doesn't seem to be reactive either.
-  ** This is the only way I could make it reactive, but we do
-  ** get intellisence.
-  */
   private get avatar() {
     return vxm.user.gitUser.avatar_url;
   }

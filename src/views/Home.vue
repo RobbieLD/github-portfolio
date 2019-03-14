@@ -3,22 +3,21 @@
     <!-- Profile Setion -->
     <portfolio-section heroClass="is-dark">
       <template>
-        <profile></profile>
+        <profile :user="User"></profile>
       </template>
     </portfolio-section>
 
-    <!-- C# Section -->
-    <portfolio-section heroClass="is-warning">
+    <portfolio-section v-for="(section, index) in Sections" :key="index" :heroClass="section.class">
       <template v-slot:header>
-        <div class="title is-10">C#</div>
+        <div class="title is-10">{{ section.title }}</div>
       </template>
       <template>
-        <projects :repos="repos.filter(x => x.language === 'C#')"></projects>
+        <projects :repos="section.repos"></projects>
       </template>
     </portfolio-section>
 
     <!-- JavaScript Section -->
-    <portfolio-section heroClass="is-primary">
+    <!-- <portfolio-section heroClass="is-primary">
       <template v-slot:header>
         <div class="title is-10">JavaScript</div>
       </template>
@@ -40,7 +39,7 @@
           </div>
         </div>
       </template>
-    </portfolio-section>
+    </portfolio-section> -->
   </section>
 </template>
 
@@ -53,6 +52,7 @@ import Project from '@/components/Project.vue';
 import Projects from '@/components/Projects.vue';
 import GithubData from '@/services/github-data';
 import { GithubRepo } from '@/models/github-repo';
+import { GithubUser } from '@/models/github-user';
 
 @Component({
   components: {
@@ -63,15 +63,18 @@ import { GithubRepo } from '@/models/github-repo';
   },
 })
 export default class Home extends Vue {
-  private repos: GithubRepo[] = [];
 
-  private async created() {
-    this.repos = await GithubData.getRepos();
-    this.repos.sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime());
+  private get User() {
+    return vxm.user.gitUser;
+  }
+
+  private get Sections() {
+    return vxm.repo.sections;
   }
 
   private mounted() {
     vxm.user.loadUser();
+    vxm.repo.loadRepos();
   }
 }
 </script>

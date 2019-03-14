@@ -7,16 +7,23 @@ import { GithubRepo } from '@/models/github-repo';
 @Module({ namespacedPath: 'repo/' })
 export class RepoStore extends VuexModule {
 
-    @getter public sections: Array<Partial<Section>> = [];
+    @getter public sections: Section[] = [];
 
     @action()
-    public async loadUser() {
+    public async loadRepos() {
         this.setRepos(await GithubData.getRepos());
     }
 
     @mutation
-    private setRepos(rs: GithubRepo[]) {
+    private setRepos(rps: GithubRepo[]) {
         // Filter the git hub repos and create sections from them
+        this.sections = config.sections.map((cfgSection) =>
+            (
+                new Section(cfgSection.title, cfgSection.class, rps.filter((r) =>
+                    cfgSection.repos.includes(r.name)),
+                )
+            ),
+        );
     }
 }
 

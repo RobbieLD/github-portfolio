@@ -23,7 +23,7 @@ import { GithubRepo } from '@/models/github-repo';
 })
 export default class Projects extends Vue {
   @Prop({ required: true })
-  private repos: GithubRepo[] = [];
+  private repos!: GithubRepo[];
 }
 </script>
 

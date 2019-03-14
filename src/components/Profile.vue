@@ -34,15 +34,12 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import { GithubUser } from '@/models/github-user';
-import GithubData from '@/services/github-data';
 
 @Component
 export default class Profile extends Vue {
-  private user: Partial<GithubUser> = {};
 
-  private async created() {
-    this.user = await GithubData.getUser();
-  }
+  @Prop({ required: true })
+  public user!: GithubUser;
 
   private get repoUrl() {
     if (this.user && this.user.login) {
