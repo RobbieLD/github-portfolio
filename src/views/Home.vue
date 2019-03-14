@@ -7,39 +7,14 @@
       </template>
     </portfolio-section>
 
-    <portfolio-section v-for="(section, index) in Sections" :key="index" :heroClass="section.class">
+    <portfolio-section v-for="(section, index) in Sections" :key="index" :heroClass="section.class" :hashLink="section.title">
       <template v-slot:header>
-        <div class="title is-10">{{ section.title }}</div>
+        <div v-bind:id="section.title" class="title is-10">{{ section.title }}</div>
       </template>
       <template>
         <projects :repos="section.repos"></projects>
       </template>
     </portfolio-section>
-
-    <!-- JavaScript Section -->
-    <!-- <portfolio-section heroClass="is-primary">
-      <template v-slot:header>
-        <div class="title is-10">JavaScript</div>
-      </template>
-      <template>
-        <div class="columns is-multiline is-vcentered is-centered">
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <project
-              projectTitle="Awesome Project 1"
-              projectDescription="My very cool library of great usefulness."
-              projectLastUpdate="1 Hour ago"
-            ></project>
-          </div>
-          <div class="column is-one-quarter-desktop is-half-tablet">
-            <project
-              projectTitle="Awesome Project 1"
-              projectDescription="My very cool library of great usefulness."
-              projectLastUpdate="1 Hour ago"
-            ></project>
-          </div>
-        </div>
-      </template>
-    </portfolio-section> -->
   </section>
 </template>
 

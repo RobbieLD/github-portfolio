@@ -14,10 +14,7 @@
     </div>
     <div class="navbar-menu" v-bind:class="{'is-active' : isMobileMenuActive}">
       <div class="navbar-start">
-        <span class="navbar-item">{{ name }}</span>
-        <!-- <router-link class="navbar-item" to="/home">Home</router-link>
-        <router-link class="navbar-item" to="/home">GitHub</router-link>
-        <router-link class="navbar-item" to="/home">Nuget</router-link>-->
+        <a v-for="(section, index) in sections" :key="index" v-bind:href="createHashLink(section.title)" v-bind:class="section.class" class="navbar-item">{{ section.title }}</a>
       </div>
       <!-- 
           We could make these configurable in the config file
@@ -81,6 +78,14 @@ export default class NavBar extends Vue {
 
   private get name() {
     return vxm.user.gitUser.name;
+  }
+
+  private get sections() {
+    return vxm.repo.sections;
+  }
+
+  private createHashLink(name: string) {
+    return '#' + name;
   }
 }
 </script>
