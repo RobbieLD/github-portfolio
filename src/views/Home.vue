@@ -1,7 +1,7 @@
 <template>
   <section>
     <!-- Profile Setion -->
-    <portfolio-section heroClass="is-dark">
+    <portfolio-section :heroClass="this.Config.profile.class">
       <template>
         <profile :user="User"></profile>
       </template>
@@ -19,7 +19,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Vue } from 'vue-property-decorator';
+import { Component, Mixin, Mixins } from 'vue-mixin-decorator';
 import { vxm } from '@/store';
 import PortfolioSection from '@/components/PortfolioSection.vue';
 import Profile from '@/components/Profile.vue';
@@ -28,6 +29,7 @@ import Projects from '@/components/Projects.vue';
 import GithubData from '@/services/github-data';
 import { GithubRepo } from '@/models/github-repo';
 import { GithubUser } from '@/models/github-user';
+import { ConfigMixin } from '@/mixins/config';
 
 @Component({
   components: {
@@ -37,7 +39,7 @@ import { GithubUser } from '@/models/github-user';
     Projects,
   },
 })
-export default class Home extends Vue {
+export default class Home extends Mixins<ConfigMixin>(ConfigMixin) {
 
   private get User() {
     return vxm.user.gitUser;

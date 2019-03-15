@@ -1,5 +1,7 @@
 export interface Config {
     githubUser: string;
+    // Theme's come from https://jenil.github.io/bulmaswatch/
+    theme: string;
     profile: ConfigProfile;
     social: ConfigSocial[];
     sections: ConfigSection[];

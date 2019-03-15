@@ -1,5 +1,19 @@
 {
     "githubUser": "GitHubUserName",
+    "theme": "default",
+    "profile": {
+        "showLocation": true
+    },
+    "social": [
+        {
+            "service": "twitter",
+            "url": "http://twitter.com"
+        },
+        {
+            "service": "stack-overflow",
+            "url": "http://stackoverflow.com"
+        }
+    ],
     "sections": [
         {
             "title": "C#",
