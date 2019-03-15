@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar is-fixed-top" role="navigation" aria-label="main nagivation">
     <div class="navbar-brand">
-      <a class="navbar-item">
+      <a class="navbar-item" href="#profile">
         <figure class="image is-24x24">
           <img class="is-rounded" :src="avatar">
         </figure>

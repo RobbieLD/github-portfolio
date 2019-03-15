@@ -1,5 +1,5 @@
 <template>
-  <div class="columns is-vcentered">
+  <div class="columns is-vcentered" id="profile">
     <div class="column">
       <figure class="image is-256x256">
         <img v-bind:src="user.avatar_url" alt="User Avatar" class="is-rounded">
