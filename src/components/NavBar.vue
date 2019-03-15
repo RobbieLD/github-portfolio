@@ -14,30 +14,26 @@
     </div>
     <div class="navbar-menu" v-bind:class="{'is-active' : isMobileMenuActive}">
       <div class="navbar-start">
-        <a v-for="(section, index) in sections" :key="index" v-bind:href="createHashLink(section.title)" v-bind:class="section.class" class="navbar-item">{{ section.title }}</a>
+        <a
+          v-for="(section, index) in sections"
+          :key="index"
+          v-bind:href="createHashLink(section.title)"
+          v-bind:class="section.class"
+          class="navbar-item"
+        >{{ section.title }}</a>
       </div>
-      <!-- 
-          We could make these configurable in the config file
-      -->
+
       <div class="navbar-end">
-        <a href="#" class="navbar-item is-size-4" aria-label="GitHub" title="GitHub">
-          <font-awesome-icon :icon="['fab', 'github']"/>
-        </a>
-        
-        <a href="#" class="navbar-item is-size-4" aria-label="Twitter" title="Twitter">
-          <font-awesome-icon :icon="['fab', 'twitter']"/>
-        </a>
-        
-        <a href="#" class="navbar-item is-size-4" aria-label="Stack Overflow" title="Stack Overflow">
-          <font-awesome-icon :icon="['fab', 'stack-overflow']"/>
-        </a>
-        
-        <a href="#" class="navbar-item is-size-4" aria-label="Npm" title="Npm">
-          <font-awesome-icon :icon="['fab', 'npm']"/>
-        </a>
-        
-        <a href="#" class="navbar-item is-size-4" aria-label="Bitbucket" title="Bitbucket">
-          <font-awesome-icon :icon="['fab', 'bitbucket']"/>
+        <a
+          v-for="(social, index) in this.Config.social"
+          :key="index"
+          v-bind:href="social.url"
+          target="_blank"
+          class="navbar-item is-size-4"
+          v-bind:aria-label="social.service"
+          v-bind:title="social.service"
+        >
+          <font-awesome-icon :icon="createFontImport(social.service)"/>
         </a>
       </div>
     </div>
@@ -45,12 +41,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Prop, Vue } from 'vue-property-decorator';
+import { Component, Mixin, Mixins } from 'vue-mixin-decorator';
 import { GithubUser } from '@/models/github-user';
 import { vxm } from '@/store';
+import { ConfigMixin } from '@/mixins/config';
 
 @Component
-export default class NavBar extends Vue {
+export default class NavBar extends Mixins<ConfigMixin>(ConfigMixin) {
   private isMobileMenuActive = false;
 
   private toggleMobileMenu(): void {
@@ -71,6 +69,10 @@ export default class NavBar extends Vue {
 
   private createHashLink(name: string) {
     return '#' + name;
+  }
+
+  private createFontImport(name: string) {
+    return ['fab', name];
   }
 }
 </script>
