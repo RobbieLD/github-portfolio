@@ -7,8 +7,8 @@ import { Config } from '@/models/app-config';
 
 @Module({ namespacedPath: 'repo/' })
 export class RepoStore extends VuexModule {
-
     @getter public sections: Section[] = [];
+    private config = config as Config;
 
     @action()
     public async loadRepos() {
@@ -18,13 +18,14 @@ export class RepoStore extends VuexModule {
     @mutation
     private setRepos(rps: GithubRepo[]) {
         // Filter the git hub repos and create sections from them
-        this.sections = (config as Config).sections.map((cfgSection) =>
-            (
-                new Section(cfgSection.title, cfgSection.class, rps.filter((r) =>
-                    cfgSection.repos.includes(r.name)),
-                )
-            ),
-        );
+        this.sections = this.config.sections.map((cfgSection) =>
+            new Section(
+                cfgSection.title,
+                cfgSection.class,
+                rps
+                    .filter((r) => cfgSection.repos.includes(r.name))
+                    .map((repository) => this.config.repositoryOverrides[repository.name] ?
+                        Object.assign(repository, this.config.repositoryOverrides[repository.name]) : repository)));
     }
 }
 

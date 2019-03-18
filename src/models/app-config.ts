@@ -1,3 +1,9 @@
+import { GithubRepo } from '@/models/github-repo';
+
+type PartialNullable<T> = {
+    [P in keyof T]?: T[P] | null;
+};
+
 export interface Config {
     githubUser: string;
     // Theme's come from https://jenil.github.io/bulmaswatch/
@@ -5,6 +11,7 @@ export interface Config {
     profile: ConfigProfile;
     social: ConfigSocial[];
     sections: ConfigSection[];
+    repositoryOverrides: { [name: string]: PartialNullable<GithubRepo> };
 }
 
 export interface ConfigSection {

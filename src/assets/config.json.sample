@@ -25,5 +25,10 @@
             "class": "is-warning",
             "repos": ["ProjectB", "ProjectC"]
         }
-    ]  
+    ],
+    "repositoryOverrides": {
+        "repo-name": {
+            "homepage": "https://new-homepage.com"
+        }
+    }  
 }
