@@ -24,7 +24,8 @@ export class RepoStore extends VuexModule {
                 cfgSection.class,
                 rps
                     .filter((r) => cfgSection.repos.includes(r.name))
-                    .map((repository) => this.config.repositoryOverrides[repository.name] ?
+                    .map((repository) => this.config.repositoryOverrides &&
+                        this.config.repositoryOverrides[repository.name] ?
                         Object.assign(repository, this.config.repositoryOverrides[repository.name]) : repository)));
     }
 }
