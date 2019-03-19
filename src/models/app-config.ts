@@ -20,6 +20,12 @@ export interface ConfigSection {
     repos: string[];
 }
 
+export interface Interest {
+    title: string;
+    sizeClass: string;
+    colorClass: string;
+}
+
 export interface ConfigSocial {
     service: 'twitter' | 'bitbucket' | 'stack-overflow' | 'npm';
     url: string;
@@ -27,4 +33,6 @@ export interface ConfigSocial {
 
 export interface ConfigProfile {
     showLocation: boolean;
+    class: string;
+    interests: Interest[];
 }

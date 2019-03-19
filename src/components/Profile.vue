@@ -11,10 +11,22 @@
         <a :href="repoUrl" class="is-link" target="_blank">@{{ user.login }}</a>
       </div>
       <div class="subtitle">
-        <font-awesome-icon v-if="this.Config.profile.showLocation" class="is-size-3" :icon="['fas', 'map-marker-alt']"/>
+        <font-awesome-icon
+          v-if="this.Config.profile.showLocation"
+          class="is-size-3"
+          :icon="['fas', 'map-marker-alt']"
+        />
         <span v-if="this.Config.profile.showLocation" class="nudge-right">{{ user.location }}</span>
       </div>
-      <div>{{ user.bio }}</div>
+      <div class="nudge-down">{{ user.bio }}</div>
+      <div class="tags">
+        <span
+          class="tag"
+          v-for="(interest, index) in this.Config.profile.interests"
+          :key="index"
+          v-bind:class="[interest.sizeClass, interest.colorClass]"
+        >{{ interest.title }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -27,7 +39,6 @@ import { ConfigMixin } from '@/mixins/config';
 
 @Component
 export default class Profile extends Mixins<ConfigMixin>(ConfigMixin) {
-
   @Prop({ required: true })
   public user!: GithubUser;
 
@@ -46,6 +57,10 @@ export default class Profile extends Mixins<ConfigMixin>(ConfigMixin) {
 }
 .hero.is-dark {
   fill: whitesmoke;
+}
+
+.nudge-down {
+  margin-bottom: 20px;
 }
 
 .nudge-right {

@@ -1,4 +1,9 @@
-// Do any overrides we want here
-
 // Import the theme
-@import '~bulmaswatch/nuclear/bulmaswatch';
+@import '~bulmaswatch/minty/bulmaswatch';
+
+// Do any overrides we want here (https://bulma.io/documentation/customize/variables/)
+
+// to prevent some of the themes having a rounded boarded on the nav bar which looks horrible
+.navbar {
+    border-radius: 0px;
+}
