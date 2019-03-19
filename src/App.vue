@@ -8,8 +8,7 @@
 </template>
 
 <script lang="ts">
-import { Vue } from 'vue-property-decorator';
-import { Component, Mixin, Mixins } from 'vue-mixin-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import NavBar from '@/components/NavBar.vue';
 import { ConfigMixin } from '@/mixins/config';
 
@@ -18,14 +17,5 @@ import { ConfigMixin } from '@/mixins/config';
     NavBar,
   },
 })
-export default class App  extends Mixins<ConfigMixin>(ConfigMixin) {
-  private created() {
-     const themeUrl = 'https://unpkg.com/bulmaswatch/' + this.Config.theme.toLowerCase() + '/bulmaswatch.min.css';
-     const themeLink = document.getElementById('theme');
-
-     if (themeLink) {
-       (themeLink as HTMLLinkElement).href = themeUrl;
-     }
-  }
-}
+export default class App  extends Vue {}
 </script>
