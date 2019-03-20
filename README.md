@@ -1,29 +1,16 @@
-# github-portfolio
+# GiHhub Portfolio
 
-## Project setup
-```
-npm install
-```
+## Description
+Github Portfolio is a simple web project to help showcase you're projects and skills on GitHub and provide an online Resume of sorts to show off. The iead is that you'll fork this repo to your own GitHub account and modify it to present your own customized show case. Detailed instructions on that are as follows. 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Set up
+TODO
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Config File
+TODO
 
-### Run your tests
-```
-npm run test
-```
+## Themes
+TODO
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Hosting
+TODO
