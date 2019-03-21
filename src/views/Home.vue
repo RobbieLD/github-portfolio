@@ -5,9 +5,30 @@
       <template>
         <profile :user="User"></profile>
       </template>
+      <template v-slot:footer>
+        <div class="section">
+          <div class="level">
+            <div class="level-item has-text-centered">
+              <div class="field is-grouped is-grouped-multiline">
+                <div v-for="(type, index) in Object.keys(Config.profile.interestTypes)" :key="index" class="control">
+                  <div class="tags has-addons">
+                    <span class="tag is-dark">{{ Config.profile.interestTypes[type].title }}</span>
+                    <span class="tag" v-bind:class="Config.profile.interestTypes[type].colorClass"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
     </portfolio-section>
 
-    <portfolio-section v-for="(section, index) in Sections" :key="index" :heroClass="section.class" :hashLink="section.title">
+    <portfolio-section
+      v-for="(section, index) in Sections"
+      :key="index"
+      :heroClass="section.class"
+      :hashLink="section.title"
+    >
       <template v-slot:header>
         <div v-bind:id="section.title" class="title is-10">{{ section.title }}</div>
       </template>
@@ -40,7 +61,6 @@ import { ConfigMixin } from '@/mixins/config';
   },
 })
 export default class Home extends Mixins<ConfigMixin>(ConfigMixin) {
-
   private get User() {
     return vxm.user.gitUser;
   }

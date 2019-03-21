@@ -4,14 +4,16 @@ type PartialNullable<T> = {
     [P in keyof T]?: T[P] | null;
 };
 
+interface InterestTypes {
+    [name: string]: InterestType;
+}
+
 export interface Config {
     githubUser: string;
-    // Theme's come from https://jenil.github.io/bulmaswatch/
-    theme: string;
     profile: ConfigProfile;
     social: ConfigSocial[];
     sections: ConfigSection[];
-    repositoryOverrides: { [name: string]: PartialNullable<GithubRepo> };
+    repositoryOverrides?: { [name: string]: PartialNullable<GithubRepo> };
 }
 
 export interface ConfigSection {
@@ -20,10 +22,15 @@ export interface ConfigSection {
     repos: string[];
 }
 
+export interface InterestType {
+    title: string;
+    colorClass: string;
+}
+
 export interface Interest {
     title: string;
     sizeClass: string;
-    colorClass: string;
+    type: keyof InterestTypes;
 }
 
 export interface ConfigSocial {
@@ -34,5 +41,6 @@ export interface ConfigSocial {
 export interface ConfigProfile {
     showLocation: boolean;
     class: string;
+    interestTypes: InterestTypes;
     interests: Interest[];
 }

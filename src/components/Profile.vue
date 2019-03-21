@@ -24,7 +24,7 @@
           class="tag"
           v-for="(interest, index) in this.Config.profile.interests"
           :key="index"
-          v-bind:class="[interest.sizeClass, interest.colorClass]"
+          v-bind:class="[interest.sizeClass, Config.profile.interestTypes[interest.type].colorClass]"
         >{{ interest.title }}</span>
       </div>
     </div>
