@@ -36,6 +36,7 @@
         <projects :repos="section.repos"></projects>
       </template>
     </portfolio-section>
+    <portfolio-footer></portfolio-footer>
   </section>
 </template>
 
@@ -46,6 +47,7 @@ import { vxm } from '@/store';
 import PortfolioSection from '@/components/PortfolioSection.vue';
 import Profile from '@/components/Profile.vue';
 import Project from '@/components/Project.vue';
+import PortfolioFooter from '@/components/PortfolioFooter.vue';
 import Projects from '@/components/Projects.vue';
 import GithubData from '@/services/github-data';
 import { GithubRepo } from '@/models/github-repo';
@@ -58,6 +60,7 @@ import { ConfigMixin } from '@/mixins/config';
     Profile,
     Project,
     Projects,
+    PortfolioFooter,
   },
 })
 export default class Home extends Mixins<ConfigMixin>(ConfigMixin) {
