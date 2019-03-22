@@ -1,5 +1,5 @@
 // Import the theme
-@import '~bulmaswatch/minty/bulmaswatch';
+@import '~bulmaswatch/minty/bulmaswatch.scss';
 
 // Do any overrides we want here (https://bulma.io/documentation/customize/variables/)
 
@@ -7,3 +7,8 @@
 .navbar {
     border-radius: 0px;
 }
+
+// Fix for https://github.com/jgthms/bulma/issues/1828 in the footer
+.hero.is-dark a:not(.button):not(.dropdown-item):not(.tag), .hero.is-dark strong {
+    color: $primary !important;
+  }
