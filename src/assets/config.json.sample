@@ -1,28 +1,7 @@
 {
     "githubUser": "GitHubUserName",
     "profile": {
-        "showLocation": true,
-        "class": "is-primary",
-        "interests": [
-            {
-                "title": ".Net",
-                "sizeClass": "is-large",
-                "colorClass": "is-dark"
-
-            },
-            {
-                "title": "Java",
-                "sizeClass": "is-medium",
-                "colorClass": "is-primary"
-
-            },
-            {
-                "title": "JavaScript",
-                "sizeClass": "is-small",
-                "colorClass": "is-warning"
-
-            }
-        ]
+        "showLocation": true
     },
     "social": [
         {
@@ -45,10 +24,5 @@
             "class": "is-warning",
             "repos": ["ProjectB", "ProjectC"]
         }
-    ],
-    "repositoryOverrides": {
-        "repo-name": {
-            "homepage": "https://new-homepage.com"
-        }
-    }  
+    ]  
 }
