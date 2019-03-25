@@ -1,7 +1,42 @@
 {
     "githubUser": "GitHubUserName",
     "profile": {
-        "showLocation": true
+        "class": "is-light",
+        "showLocation": true,
+        "interestTypes": {
+            "skill": {
+                "title": "Skill",
+                "colorClass": "is-primary"
+            },
+            "interest": {
+                "title": "Interest",
+                "colorClass": "is-warning"
+            },
+            "hobby": {
+                "title": "Hobby",
+                "colorClass": "is-link"
+            }
+        },
+    },
+     "interests": [
+            {
+                "title": "Raspberry Pi",
+                "sizeClass": "is-small",
+                "type": "interest"
+
+            },
+            {
+                "title": ".Net Core",
+                "sizeClass": "is-medium",
+                "type": "skill"
+
+            },
+            {
+                "title": "Adobe CC",
+                "sizeClass": "is-large",
+                "type": "hobby"
+            }
+        ]
     },
     "social": [
         {

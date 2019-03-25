@@ -22,8 +22,26 @@ This is your GitHub username and defines the user for which the portfolio will d
 ### profile
 The section displayed how the profile is displayed.
 
+### class
+This determines which css class is used to style the profile section. All the colour css classes come from [bulma.io hero](https://bulma.io/documentation/layout/hero/) element.
+
 #### showLocation
 This is a boolean which determins if you're GitHub location is displayed on the user profile section at the start of the portfolio
+
+#### interestTypes
+This defines the legend to be used for the little tag colors displayed on the profile section. Each of these is a named object which has a title and colour class. The name of the object is used as the key when you're setting up the interests tags later on. 
+
+The title is simply the title of the tag and the colorClass is the bulma css. It's the same classes as mentioned in the profile class section. The possible values are:
+- is-primary
+- is-info
+- is-warning
+- is-danger
+- is-success
+- is-light
+- is-dark
+
+### interests
+TODO
 
 ### social
 This is an array of objects which create the menu items in the right of the nav bar. These objects configure which social media and other sites you'd like as icon links in the nav bar on the right. Each objects in the social array consists of the follwing two properties.
