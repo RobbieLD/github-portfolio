@@ -71,6 +71,3 @@ The name of the repository can then be used in the `sections` to have the reposi
 To pick a theme for your site, have a look at [Bulmaswatch](https://jenil.github.io/bulmaswatch/) and pick a theme. Change the name of the default them in the `src/assets/app.scss` import line to be the name of your chosen theme. For example if you're wanting to use the 'minty' theme make the theme import line read as follows: `@import '~bulmaswatch/minty/bulmaswatch.scss';`
 
 You can also add in overrides to the colours in the `app.scss` file to make the theme truely yours. The avaliable colours and fonts which can be overriden as listed [here](https://github.com/jenil/bulmaswatch/blob/gh-pages/darkly/_variables.scss)
-
-## Advanced
-TODO: customising menus etc. 
