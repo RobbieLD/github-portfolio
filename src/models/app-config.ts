@@ -18,7 +18,7 @@ export interface Config {
     social: ConfigSocial[];
     sections: ConfigSection[];
     repositoryOverrides?: RepositoryOverrides;
-    externalRepositories: string[];
+    externalRepositories?: string[];
 }
 
 export interface ConfigSection {
