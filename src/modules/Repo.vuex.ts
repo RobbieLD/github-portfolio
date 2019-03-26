@@ -1,7 +1,7 @@
 import { VuexModule, mutation, action, getter, Module } from 'vuex-class-component';
 import GithubData from '@/services/github-data';
 import { Section } from '@/models/app-section';
-import config from '@/assets/config.json';
+import config from '@/../public/config.json';
 import { GithubRepo } from '@/models/github-repo';
 import { Config } from '@/models/app-config';
 

@@ -1,0 +1,155 @@
+{
+    "githubUser": "RobbieLD",
+    "profile": {
+        "class": "is-light",
+        "showLocation": true,
+        "interestTypes": {
+            "skill": {
+                "title": "Skill",
+                "colorClass": "is-primary"
+            },
+            "interest": {
+                "title": "Interest",
+                "colorClass": "is-warning"
+            },
+            "hobby": {
+                "title": "Hobby",
+                "colorClass": "is-link"
+            }
+        },
+        "interests": [
+            {
+                "title": "C#",
+                "sizeClass": "is-large",
+                "type": "skill"
+            },
+            {
+                "title": "Umbraco",
+                "sizeClass": "is-medium",
+                "type": "skill"
+            },
+            {
+                "title": "Node.JS",
+                "sizeClass": "is-medium",
+                "type": "skill"
+
+            },
+            {
+                "title": "Vue.JS",
+                "sizeClass": "is-large",
+                "type": "skill"
+
+            },
+            {
+                "title": "Raspberry Pi",
+                "sizeClass": "is-small",
+                "type": "interest"
+
+            },
+            {
+                "title": ".Net Core",
+                "sizeClass": "is-medium",
+                "type": "skill"
+
+            },
+            {
+                "title": "MVC",
+                "sizeClass": "is-large",
+                "type": "skill"
+
+            },
+            {
+                "title": "HTML5",
+                "sizeClass": "is-medium",
+                "type": "skill"
+
+            },
+            {
+                "title": "CSS3",
+                "sizeClass": "is-medium",
+                "type": "skill"
+
+            },
+            {
+                "title": "JavaScript",
+                "sizeClass": "is-medium",
+                "type": "skill"
+
+            },
+            {
+                "title": "T-SQL",
+                "sizeClass": "is-medium",
+                "type": "skill"
+
+            },
+            {
+                "title": "Oracle",
+                "sizeClass": "is-small",
+                "type": "skill"
+
+            },
+            {
+                "title": "Strapi",
+                "sizeClass": "is-small",
+                "type": "interest"
+
+            },
+            {
+                "title": "Mongo",
+                "sizeClass": "is-small",
+                "type": "interest"
+
+            },
+            {
+                "title": "Firebase",
+                "sizeClass": "is-medium",
+                "type": "interest"
+
+            },
+            {
+                "title": "Java",
+                "sizeClass": "is-small",
+                "type": "skill"
+            },
+            {
+                "title": "Adobe CC",
+                "sizeClass": "is-large",
+                "type": "hobby"
+            }
+        ]
+    },
+    "social": [
+        {
+            "service": "stack-overflow",
+            "url": "https://stackoverflow.com/users/770478/monk?tab=profile"
+        },
+        {
+            "service": "500px",
+            "url": "https://500px.com/robertlyndondavis/galleries"
+        },
+        {
+            "service": "flickr",
+            "url": "https://www.flickr.com/photos/robbield/albums"
+        }
+    ],
+    "sections": [{
+        "title": "C#",
+        "class": "is-warning",
+        "repos": ["MailMinion", "patterns"]
+    },
+    {
+        "title": "Vue.JS",
+        "class": "is-info",
+        "repos": ["RaspberryEye", "github-portfolio", "Quizzy.js"]
+    },
+    {
+        "title": "Node.JS",
+        "class": "is-danger",
+        "repos": ["Quizzy","RaspberryEye"]
+    },
+    {
+        "title": "Umbraco",
+        "class": "is-link",
+        "repos": [ "FontAwesomeIconFinder"]
+    }]
+}

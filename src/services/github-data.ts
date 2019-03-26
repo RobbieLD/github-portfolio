@@ -1,5 +1,5 @@
 import GithubApi from './github-api';
-import config from '@/assets/config.json';
+import config from '@/../public/config.json';
 import { GithubUser } from '@/models/github-user';
 import { GithubRepo } from '@/models/github-repo';
 import { Config } from '@/models/app-config';
