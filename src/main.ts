@@ -23,6 +23,8 @@ import {
   faNpm,
   faBitbucket,
   faGithub,
+  fa500px,
+  faFlickr,
 } from '@fortawesome/free-brands-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -43,6 +45,8 @@ library.add(
     faBitbucket,
     faGithub,
     faMapMarkerAlt,
+    fa500px,
+    faFlickr,
   );
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
