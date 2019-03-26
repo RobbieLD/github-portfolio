@@ -12,6 +12,10 @@ class GithubApi {
         return this.get<GithubRepo[]>(`users/${username}/repos`);
     }
 
+    public getExternalRepo(name: string): Promise<GithubRepo> {
+        return this.get<GithubRepo>(`repos/${name}`);
+    }
+
     private async get<T>(url: string): Promise<T> {
         const request: RequestInit = {
             headers: {

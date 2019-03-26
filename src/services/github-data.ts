@@ -8,8 +8,11 @@ class GithubData {
         return GithubApi.getUser(config.githubUser);
     }
 
-    public getRepos(): Promise<GithubRepo[]> {
-        return GithubApi.getUserRepos(config.githubUser);
+    public async getRepos(): Promise<GithubRepo[]> {
+        const userRepos = GithubApi.getUserRepos(config.githubUser);
+        const externalRepos = config.externalRepositories.map((name) => GithubApi.getExternalRepo(name));
+
+        return (await userRepos).concat(await Promise.all(externalRepos));
     }
 }
 

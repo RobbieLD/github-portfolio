@@ -17,19 +17,16 @@
                 "colorClass": "is-link"
             }
         },
-    },
-     "interests": [
+        "interests": [
             {
                 "title": "Raspberry Pi",
                 "sizeClass": "is-small",
                 "type": "interest"
-
             },
             {
                 "title": ".Net Core",
                 "sizeClass": "is-medium",
                 "type": "skill"
-
             },
             {
                 "title": "Adobe CC",
@@ -52,12 +49,19 @@
         {
             "title": "C#",
             "class": "is-primary",
-            "repos": ["ProjectA", "ProjectB"]
+            "repos": [
+                "ProjectA",
+                "ProjectB"
+            ]
         },
         {
             "title": "JavaScript",
             "class": "is-warning",
-            "repos": ["ProjectB", "ProjectC"]
+            "repos": [
+                "ProjectB",
+                "ProjectC"
+            ]
         }
-    ]  
+    ],
+    "externalRepositories": ["RobbieLD/github-portfolio"]
 }

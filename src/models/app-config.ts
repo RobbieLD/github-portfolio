@@ -8,12 +8,17 @@ interface InterestTypes {
     [name: string]: InterestType;
 }
 
+interface RepositoryOverrides {
+    [name: string]: PartialNullable<GithubRepo>;
+}
+
 export interface Config {
     githubUser: string;
     profile: ConfigProfile;
     social: ConfigSocial[];
     sections: ConfigSection[];
-    repositoryOverrides?: { [name: string]: PartialNullable<GithubRepo> };
+    repositoryOverrides?: RepositoryOverrides;
+    externalRepositories: string[];
 }
 
 export interface ConfigSection {

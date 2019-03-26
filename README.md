@@ -22,7 +22,7 @@ This is your GitHub username and defines the user for which the portfolio will d
 ### profile
 The section displayed how the profile is displayed.
 
-### class
+#### class
 This determines which css class is used to style the profile section. All the colour css classes come from [bulma.io hero](https://bulma.io/documentation/layout/hero/) element.
 
 #### showLocation
@@ -40,7 +40,7 @@ The title is simply the title of the tag and the colorClass is the bulma css. It
 - is-light
 - is-dark
 
-### interests
+#### interests
 TODO
 
 ### social
@@ -57,6 +57,10 @@ This is the name of the site. The supported sites so far are as follows.
 - npm
 
 ### sections
+
+### externalRepositories
+A string array of repositories outside the account specified by `githubUser` in the form `{username}/{repositoryName}`.
+The name of the repository can then be used in the `sections` to have the repository displayed - username is not required in the sections.
 
 
 ## Themes
