@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar is-fixed-top" role="navigation" aria-label="main nagivation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="#profile">
+      <a class="navbar-item" v-on:click="navLinkClicked('profile')">
         <figure class="image is-24x24">
           <img class="is-rounded" :src="avatar">
         </figure>
@@ -16,8 +16,8 @@
       <div class="navbar-start">
         <a
           v-for="(section, index) in sections"
+          v-on:click="navLinkClicked(section.title)"
           :key="index"
-          v-bind:href="createHashLink(section.title)"
           v-bind:class="section.class"
           class="navbar-item"
         >{{ section.title }}</a>
@@ -51,6 +51,27 @@ import { ConfigMixin } from '@/mixins/config';
 export default class NavBar extends Mixins<ConfigMixin>(ConfigMixin) {
   private isMobileMenuActive = false;
 
+  public navLinkClicked(targetName: string) {
+    const target = document.getElementById(targetName);
+    const navbar = document.getElementsByClassName('navbar')[0];
+    let scrollHeight = 0;
+    if (target) {
+      scrollHeight += target.offsetTop;
+    }
+
+    if (navbar) {
+      scrollHeight -= navbar.clientHeight;
+    }
+
+    const supportsNativeSmoothScroll =
+      'scrollBehavior' in document.documentElement.style;
+    if (supportsNativeSmoothScroll) {
+      window.scrollTo({ left: 0, top: scrollHeight, behavior: 'smooth' });
+    } else {
+      window.scrollTo(0, scrollHeight);
+    }
+  }
+
   private toggleMobileMenu(): void {
     this.isMobileMenuActive = !this.isMobileMenuActive;
   }
@@ -65,10 +86,6 @@ export default class NavBar extends Mixins<ConfigMixin>(ConfigMixin) {
 
   private get sections() {
     return vxm.repo.sections;
-  }
-
-  private createHashLink(name: string) {
-    return '#' + name;
   }
 
   private createFontImport(name: string) {
