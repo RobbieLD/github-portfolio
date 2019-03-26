@@ -1,11 +1,16 @@
 // Import the theme
-@import '~bulmaswatch/minty/bulmaswatch.scss';
+@import '~bulmaswatch/darkly/bulmaswatch.scss';
 
 // Do any overrides we want here (https://bulma.io/documentation/customize/variables/)
 
 // to prevent some of the themes having a rounded border on the nav bar which looks horrible
 .navbar {
     border-radius: 0px;
+}
+
+// Using a dark theme we need to override this to a light colour
+.has-text-dark {
+    color: $text !important;
 }
 
 // Fix for https://github.com/jgthms/bulma/issues/1828 in the footer

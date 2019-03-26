@@ -24,13 +24,14 @@
     </portfolio-section>
 
     <portfolio-section
+      v-bind:id="section.title"
       v-for="(section, index) in Sections"
       :key="index"
       :heroClass="section.class"
       :hashLink="section.title"
     >
       <template v-slot:header>
-        <div v-bind:id="section.title" class="title is-10">{{ section.title }}</div>
+        <div class="title is-10">{{ section.title }}</div>
       </template>
       <template>
         <projects :repos="section.repos"></projects>
