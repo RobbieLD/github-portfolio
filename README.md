@@ -41,7 +41,7 @@ The title is simply the title of the tag and the colorClass is the bulma css. It
 - is-dark
 
 #### interests
-TODO
+These are the little tags which appear below your profile imformation. The structure of each interest consists of a `title` which is the text displayed, a `type` which comes from the `interestTypes` above and a `sizeClass` which a [bulma tag size](https://bulma.io/documentation/elements/tag/) 
 
 ### social
 This is an array of objects which create the menu items in the right of the nav bar. These objects configure which social media and other sites you'd like as icon links in the nav bar on the right. Each objects in the social array consists of the follwing two properties.
@@ -57,6 +57,10 @@ This is the name of the site. The supported sites so far are as follows.
 - npm
 
 ### sections
+These are the main sections of the whole site. As with the interests sections above they consist of several properties. Each section has a `title` which is these large text at the top. They also have a class which again comes from [bulma heros](https://bulma.io/documentation/layout/hero/). Finally they have an array of repos names. These are the names of the GitHub repositories in your GitHub profile you'd like displayed in the section. 
+
+#### repository demo url
+You might notice that some of the repositories in a section have a small red icon next to them. This automatically renders if that GitHub repository has a url defined in the website field in the repo settings. 
 
 ### externalRepositories
 A string array of repositories outside the account specified by `githubUser` in the form `{username}/{repositoryName}`.
