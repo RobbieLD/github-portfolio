@@ -10,7 +10,7 @@ export class UserStore extends VuexModule {
   @getter public gitUser: Partial<GithubUser> = {};
 
   @action()
-  public async loadUser(cfg: Config) {
+  public async loadUser(cfg: Partial<Config>) {
     this.setUser(await GithubData.getUser(cfg));
   }
 

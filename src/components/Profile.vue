@@ -1,5 +1,5 @@
 <template>
-  <div class="columns is-vcentered" id="profile">
+  <div v-if="Config.profile" class="columns is-vcentered" id="profile">
     <div class="column">
       <figure class="image is-256x256">
         <img v-bind:src="user.avatar_url" alt="User Avatar" class="is-rounded">
@@ -22,7 +22,7 @@
       <div class="tags">
         <span
           class="tag"
-          v-for="(interest, index) in this.Config.profile.interests"
+          v-for="(interest, index) in Config.profile.interests"
           :key="index"
           v-bind:class="[interest.sizeClass, Config.profile.interestTypes[interest.type].colorClass]"
         >{{ interest.title }}</span>
@@ -35,11 +35,16 @@
 import { Vue, Prop } from 'vue-property-decorator';
 import { Component, Mixin, Mixins } from 'vue-mixin-decorator';
 import { GithubUser } from '@/models/github-user';
+import { vxm } from '@/store';
 
 @Component
 export default class Profile extends Vue {
   @Prop({ required: true })
   public user!: GithubUser;
+
+  private get Config() {
+    return vxm.config.cfg;
+  }
 
   private get repoUrl() {
     if (this.user && this.user.login) {

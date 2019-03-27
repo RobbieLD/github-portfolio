@@ -3,19 +3,19 @@ import { Config } from '@/models/app-config';
 
 @Module({ namespacedPath: 'config/' })
 export class ConfigStore extends VuexModule {
-    @getter public cfg!: Config;
-
-    private readonly configPath: string = 'config.json';
+    // This needs to be a partial or it won't be reactive
+    @getter public cfg: Partial<Config> = {};
 
     @action()
     public async loadConfig() {
-        const response = await fetch(this.configPath);
-        this.setConfig(await response.json() as Config);
+        const response = await fetch('config.json');
+        const conf = await response.json() as Config;
+        this.setConfig(conf);
     }
 
     @mutation
-    private setConfig(cfg: Config) {
-        this.cfg = cfg;
+    private setConfig(c: Config) {
+        this.cfg = c;
     }
 }
 

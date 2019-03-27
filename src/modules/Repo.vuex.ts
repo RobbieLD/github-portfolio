@@ -8,28 +8,27 @@ import { Config } from '@/models/app-config';
 export class RepoStore extends VuexModule {
     @getter public sections: Section[] = [];
 
-    private config!: Config;
-
     @action()
-    public async loadRepos(cfg: Config) {
-        // we can't pass cfg to setRepos as a param
-        this.config = cfg;
-        this.setRepos(await GithubData.getRepos(cfg));
+    public async loadRepos(cfg: Partial<Config>) {
+        if (cfg.sections) {
+            const repos = await GithubData.getRepos(cfg);
+            const sections = cfg.sections.map((cfgSection) =>
+                new Section(
+                    cfgSection.title,
+                    cfgSection.class,
+                    repos
+                        .filter((r) => cfgSection.repos.includes(r.name))
+                        .sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime())
+                        .map((repository) => cfg.repositoryOverrides &&
+                            cfg.repositoryOverrides[repository.name] ?
+                            Object.assign(repository, cfg.repositoryOverrides[repository.name]) : repository)));
+            this.setRepos(sections);
+        }
     }
 
     @mutation
-    private setRepos(rps: GithubRepo[] ) {
-        // Filter the git hub repos and create sections from them
-        this.sections = this.config.sections.map((cfgSection) =>
-            new Section(
-                cfgSection.title,
-                cfgSection.class,
-                rps
-                    .filter((r) => cfgSection.repos.includes(r.name))
-                    .sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime())
-                    .map((repository) => this.config.repositoryOverrides &&
-                        this.config.repositoryOverrides[repository.name] ?
-                        Object.assign(repository, this.config.repositoryOverrides[repository.name]) : repository)));
+    private setRepos(s: Section[]) {
+        this.sections = s;
     }
 }
 

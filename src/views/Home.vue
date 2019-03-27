@@ -1,7 +1,6 @@
 <template>
   <section>
-    <!-- Profile Setion -->
-    <portfolio-section :heroClass="Config.profile.class">
+    <portfolio-section v-if="Config.profile" :heroClass="Config.profile.class">
       <template>
         <profile :user="User"></profile>
       </template>
