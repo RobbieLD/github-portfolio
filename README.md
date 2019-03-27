@@ -7,7 +7,7 @@ Github Portfolio is a simple web project to help showcase you're projects and sk
 1. Fork this repository
 2. Clone the code to your local machine
 3. Install all the npm packages with `npm install`
-4. Create the `src/assets/config.json` based on the `config.json.sample` file. Details on how to set it up are in the config section below.
+4. Create the `public/config.json` based on the `config.json.sample` file. Details on how to set it up are in the config section below.
 5. Run up the deverlopment server to test your changes by running `npm run serve`
 6. Once you're happy with the look of your profile create a distribution using the command `npm build`
 7. All the files you need are in the `dist` directory. Simply deploy them with [GitHub Pages](https://pages.github.com/).

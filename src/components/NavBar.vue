@@ -25,7 +25,7 @@
 
       <div class="navbar-end">
         <a
-          v-for="(social, index) in this.Config.social"
+          v-for="(social, index) in Socials"
           :key="index"
           v-bind:href="social.url"
           target="_blank"
@@ -45,10 +45,9 @@ import { Prop, Vue } from 'vue-property-decorator';
 import { Component, Mixin, Mixins } from 'vue-mixin-decorator';
 import { GithubUser } from '@/models/github-user';
 import { vxm } from '@/store';
-import { ConfigMixin } from '@/mixins/config';
 
 @Component
-export default class NavBar extends Mixins<ConfigMixin>(ConfigMixin) {
+export default class NavBar extends Vue {
   private isMobileMenuActive = false;
 
   public navLinkClicked(targetName: string) {
@@ -86,6 +85,10 @@ export default class NavBar extends Mixins<ConfigMixin>(ConfigMixin) {
 
   private get sections() {
     return vxm.repo.sections;
+  }
+
+  private get Socials() {
+    return vxm.config.cfg.social;
   }
 
   private createFontImport(name: string) {

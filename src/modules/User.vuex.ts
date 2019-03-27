@@ -1,6 +1,7 @@
 import { VuexModule, mutation, action, getter, Module } from 'vuex-class-component';
 import { GithubUser } from '@/models/github-user';
 import GithubData from '@/services/github-data';
+import { Config } from '@/models/app-config';
 
 @Module( { namespacedPath: 'user/'})
 export class UserStore extends VuexModule {
@@ -9,8 +10,8 @@ export class UserStore extends VuexModule {
   @getter public gitUser: Partial<GithubUser> = {};
 
   @action()
-  public async loadUser() {
-    this.setUser(await GithubData.getUser());
+  public async loadUser(cfg: Config) {
+    this.setUser(await GithubData.getUser(cfg));
   }
 
   @mutation

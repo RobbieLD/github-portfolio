@@ -10,7 +10,6 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import NavBar from '@/components/NavBar.vue';
-import { ConfigMixin } from '@/mixins/config';
 
 @Component({
   components: {

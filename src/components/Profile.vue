@@ -35,10 +35,9 @@
 import { Vue, Prop } from 'vue-property-decorator';
 import { Component, Mixin, Mixins } from 'vue-mixin-decorator';
 import { GithubUser } from '@/models/github-user';
-import { ConfigMixin } from '@/mixins/config';
 
 @Component
-export default class Profile extends Mixins<ConfigMixin>(ConfigMixin) {
+export default class Profile extends Vue {
   @Prop({ required: true })
   public user!: GithubUser;
 

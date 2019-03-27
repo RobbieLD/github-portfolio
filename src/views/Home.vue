@@ -1,7 +1,7 @@
 <template>
   <section>
     <!-- Profile Setion -->
-    <portfolio-section :heroClass="this.Config.profile.class">
+    <portfolio-section :heroClass="Config.profile.class">
       <template>
         <profile :user="User"></profile>
       </template>
@@ -53,7 +53,6 @@ import Projects from '@/components/Projects.vue';
 import GithubData from '@/services/github-data';
 import { GithubRepo } from '@/models/github-repo';
 import { GithubUser } from '@/models/github-user';
-import { ConfigMixin } from '@/mixins/config';
 
 @Component({
   components: {
@@ -64,7 +63,7 @@ import { ConfigMixin } from '@/mixins/config';
     PortfolioFooter,
   },
 })
-export default class Home extends Mixins<ConfigMixin>(ConfigMixin) {
+export default class Home extends Vue {
   private get User() {
     return vxm.user.gitUser;
   }
@@ -73,9 +72,15 @@ export default class Home extends Mixins<ConfigMixin>(ConfigMixin) {
     return vxm.repo.sections;
   }
 
-  private mounted() {
-    vxm.user.loadUser();
-    vxm.repo.loadRepos();
+  private get Config() {
+    return vxm.config.cfg;
+  }
+
+  private async mounted() {
+    await vxm.config.loadConfig();
+    // This shouldn't be called until the config has been loaded
+    vxm.user.loadUser(vxm.config.cfg);
+    vxm.repo.loadRepos(vxm.config.cfg);
   }
 }
 </script>
