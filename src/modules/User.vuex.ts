@@ -15,8 +15,10 @@ export class UserStore extends VuexModule {
   }
 
   @mutation
-  private setUser(u: Partial<GithubUser>) {
-    this.gitUser = u;
+  private setUser(u: Partial<GithubUser> | undefined) {
+    if (u) {
+      this.gitUser = u;
+    }
   }
 }
 
