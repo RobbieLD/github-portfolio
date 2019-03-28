@@ -9,7 +9,11 @@
           <div class="level">
             <div class="level-item has-text-centered">
               <div class="field is-grouped is-grouped-multiline">
-                <div v-for="(type, index) in Object.keys(Config.profile.interestTypes)" :key="index" class="control">
+                <div
+                  v-for="(type, index) in Object.keys(Config.profile.interestTypes)"
+                  :key="index"
+                  class="control"
+                >
                   <div class="tags has-addons">
                     <span class="tag is-dark">{{ Config.profile.interestTypes[type].title }}</span>
                     <span class="tag" v-bind:class="Config.profile.interestTypes[type].colorClass"></span>
@@ -30,7 +34,7 @@
       :hashLink="section.title"
     >
       <template v-slot:header>
-        <div class="title is-10">{{ section.title }}</div>
+        <div class="title title-large">{{ section.title }}</div>
       </template>
       <template>
         <projects :repos="section.repos"></projects>
@@ -84,9 +88,5 @@ export default class Home extends Vue {
 }
 </script>
 
-<style scoped>
-.is-10 {
-  font-size: 10rem;
-}
+<style scoped lang="scss">
 </style>
-

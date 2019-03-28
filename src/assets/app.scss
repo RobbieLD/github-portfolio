@@ -17,3 +17,13 @@
 .hero.is-dark a:not(.button):not(.dropdown-item):not(.tag), .hero.is-dark strong {
     color: $primary !important;
   }
+
+.title-large {
+    font-size: 10rem;
+}
+
+@include mobile {
+    .title-large {
+        font-size: 5rem;
+    }
+}

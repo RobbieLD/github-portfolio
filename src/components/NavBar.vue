@@ -52,7 +52,7 @@ export default class NavBar extends Vue {
 
   public navLinkClicked(targetName: string) {
     const target = document.getElementById(targetName);
-    const navbar = document.getElementsByClassName('navbar')[0];
+    const navbar = document.getElementsByClassName('navbar-brand')[0];
     let scrollHeight = 0;
     if (target) {
       scrollHeight += target.offsetTop;
@@ -68,6 +68,10 @@ export default class NavBar extends Vue {
       window.scrollTo({ left: 0, top: scrollHeight, behavior: 'smooth' });
     } else {
       window.scrollTo(0, scrollHeight);
+    }
+
+    if (this.isMobileMenuActive) {
+      this.toggleMobileMenu();
     }
   }
 
