@@ -23,9 +23,9 @@
         >{{ section.title }}</a>
       </div>
 
-      <div class="navbar-end">
+      <div v-if="Socials" class="navbar-end">
         <a
-          v-for="(social, index) in Socials"
+          v-for="(social, index) in Socials.filter((s) => s.service !== 'envelope')"
           :key="index"
           v-bind:href="social.url"
           target="_blank"
@@ -34,6 +34,14 @@
           v-bind:title="social.service"
         >
           <font-awesome-icon :icon="createFontImport(social.service)"/>
+        </a>
+        <a
+          v-if="EmailIcon"
+          target="_blank"
+          class="navbar-item is-size-4"
+          v-bind:href="EmailIcon.url"
+        >
+          <font-awesome-icon :icon="EmailIcon.service"/>
         </a>
       </div>
     </div>
@@ -93,6 +101,12 @@ export default class NavBar extends Vue {
 
   private get Socials() {
     return vxm.config.cfg.social;
+  }
+
+  private get EmailIcon() {
+    if (this.Socials) {
+      return this.Socials.find(s => s.service === 'envelope');
+    }
   }
 
   private createFontImport(name: string) {

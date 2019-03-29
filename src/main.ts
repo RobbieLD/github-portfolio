@@ -18,6 +18,7 @@ import {
   faSquare,
   faCircle,
   faMapMarkerAlt,
+  faEnvelope,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -28,6 +29,7 @@ import {
   faGithub,
   fa500px,
   faFlickr,
+  faFacebook,
 } from '@fortawesome/free-brands-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -50,6 +52,8 @@ library.add(
     faMapMarkerAlt,
     fa500px,
     faFlickr,
+    faEnvelope,
+    faFacebook,
   );
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 

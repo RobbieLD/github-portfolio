@@ -55,6 +55,10 @@ This is the name of the site. The supported sites so far are as follows.
 - bitbucket
 - stack-overflow
 - npm
+- envelope
+- facebook
+- flickr
+- 500px
 
 ### sections
 These are the main sections of the whole site. As with the interests sections above they consist of several properties. Each section has a `title` which is these large text at the top. They also have a class which again comes from [bulma heros](https://bulma.io/documentation/layout/hero/). Finally they have an array of repos names. These are the names of the GitHub repositories in your GitHub profile you'd like displayed in the section. 

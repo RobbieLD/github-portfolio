@@ -43,6 +43,10 @@
         {
             "service": "stack-overflow",
             "url": "http://stackoverflow.com"
+        },
+        {
+            "service": "envelop",
+            "url": "mailto:name@domain.com"
         }
     ],
     "sections": [

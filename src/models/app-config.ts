@@ -39,7 +39,7 @@ export interface Interest {
 }
 
 export interface ConfigSocial {
-    service: 'twitter' | 'bitbucket' | 'stack-overflow' | 'npm';
+    service: 'twitter' | 'bitbucket' | 'stack-overflow' | 'npm' | 'envelope' | 'facebook' | '500px' | 'flickr';
     url: string;
 }
 
